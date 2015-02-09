@@ -1,31 +1,11 @@
-/*/ !! DOCUMENTATION !! \*\
-
-lastKey is self explanatory. Is automatically set in DefaultKeyDownAction()
-
-DefaultKeyDownAction() is called every time any key is pressed.
-
-defaultPreventionList is a list of all the keys for which the default
-	action is disabled. i.e. you dont want space to scroll down.
-
-keyEventPtrs is a list of functions which are called when the 
-	associatedKeyForPtr is pressed. The function is passed by value.
-	keyEventType determines if it's a key press or release.
-
-Keys() is just a container for all the key codes. Can also convert codes
-	to human readable strings. GetChar doesn't look important, I don't 
-	know what it does.
-	
-
-KeyboardController does the important stuff
-
-
-
-
-
-\* */
-
-
 var lastkey = 0;
+
+function SetLastKey(k)
+{
+	lastKey = k;
+}
+
+var currentKeyBuffer = new Array(false, false);
 
 var defaultPreventionList = new Array(0);
 
@@ -33,7 +13,8 @@ var keyEventPtrs = new Array(0);
 var associatedKeyForPtr = new Array(0);
 var keyEventType = new Array(0);  //true = down
 
-function Keys(){
+function Keys()
+{
 	this.shift = 16;
 	this.control = 17;
 	this.alt = 18;
@@ -152,7 +133,8 @@ function Keys(){
 	}
 }
 
-var DefaultKeyDownAction = function(e){
+var DefaultKeyDownAction = function(e)
+{
 	keyboard.Typed(e.which);
 	lastKey = e.which;
 }
@@ -160,7 +142,7 @@ var DefaultKeyDownAction = function(e){
 function KeyboardController(){
 	this.maskType = 'numeric';
 	
-	//this.charBuffer = "";
+	this.charBuffer = "";
 	
 	this.charBuffer = new Array();
 	

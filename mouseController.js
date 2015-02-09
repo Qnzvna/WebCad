@@ -10,7 +10,7 @@ function MState()
 	this.pRMB = false;
 	
 	var AdditionalLMBOps = function (e) {AddItem();DeleteItem();EditItem();}
-	var AdditionalRMBOps = function(e){}
+	var AdditionalRMBOps = function(e){ResetMode();}
 	
 	this.OnMouseMove = function(e)
 	{
@@ -24,12 +24,9 @@ function MState()
 		if(e.which==1)
 		{
 			this.cLMB = true;
-			RunCurrentTool(true);
 		}
-		else if(e.which==3){
+		else if(e.which==3)
 			this.cRMB = true;
-			RunCurrentTool(false);
-		}
 	}
 	
 	this.OnMouseUp = function(e)
@@ -37,7 +34,7 @@ function MState()
 		if(e.which==1)
 		{
 			this.cLMB = false;
-			//AdditionalLMBOps(e);
+			AdditionalLMBOps(e);
 		}
 		else if(e.which==3)
 		{
@@ -51,11 +48,11 @@ function MState()
 	/*this.cursorXLocal = function(){return (cursorXGlobal-offsetX-camX - displayWidth/2)/zoom;}
 	this.cursorYLocal = function(){return (cursorYGlobal-offsetY-camY - displayHeight/2)/zoom;}*/
 	
-	this.cursorXLocal = function(){return (cursorXGlobal-offset.x-displayWidth/2)/zoom - camX;}
-	this.cursorYLocal = function(){return (cursorYGlobal-offset.y-displayHeight/2)/zoom - camY;}
+	this.cursorXLocal = function(){return (cursorXGlobal-offsetX-displayWidth/2)/zoom - camX;}
+	this.cursorYLocal = function(){return (cursorYGlobal-offsetY-displayHeight/2)/zoom - camY;}
 	
-	this.cursorXInFrame = function(){return cursorXGlobal-offset.x-displayWidth/2;}
-	this.cursorYInFrame = function(){return cursorYGlobal-offset.y-displayHeight/2;}
+	this.cursorXInFrame = function(){return cursorXGlobal-offsetX-displayWidth/2;}
+	this.cursorYInFrame = function(){return cursorYGlobal-offsetY-displayHeight/2;}
 }
 
 var mouseState = new MState();
