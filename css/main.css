@@ -1,0 +1,121 @@
+img {
+  user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+}
+
+#helpBar{
+  display: block;
+  margin: 0px;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background: #404040;
+  position:absolute;
+  right:0px;
+  top:80px;
+  width: 0px;
+  height: 400px;
+  opacity: 0;
+}
+
+#helpTitle{
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  float: right;
+  color: white;
+}
+
+.menu,
+.menu ul,
+.menu li,
+.menu a {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  width: 64;
+  height: 64;
+}
+
+.menu li{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  list-style: none;
+  float: left;
+  display: block;
+  height: 72px;
+}
+
+.menu a img{
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+.menu li a{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  list-style: none;
+  float: left;
+  display: block;
+  width: 64px;
+  height: 64px;
+  border: 1px solid black;
+  border-left: none;
+  border-radius: 0px;
+}
+
+.menu>li:first-child a{border-left: 1px solid black; border-bottom-left-radius: 5px; border-top-left-radius: 5px;}
+.menu>li:last-child a{ border-bottom-right-radius: 5px; border-top-right-radius: 5px; }
+
+
+a:hover{ background: #4090D0;}
+
+.menu li:hover > ul { opacity: 1; }
+
+.menu ul {
+    position: absolute;
+    top: 65px;
+    left: 0;
+
+    opacity: 0;
+
+}
+
+.menu ul li{
+  position: relative;
+  display: block;
+  float: top;
+  width: 64px;
+  height: 0;
+  left: -1px;
+  overflow: hidden;
+}
+
+#subMenu>li a{
+  border-radius: 0px;
+  overflow: hidden;
+  background: #404040;
+  border: 1px solid black;
+}
+
+.menu li:hover > ul li {
+    height: 64px;
+    overflow: visible;
+    padding: 0;
+}
+
+#subMenu>li:hover a{ background: #4090D0;}
+
+#subMenu>li:first-child a{border-top: 1px solid black;}
+#subMenu>li:last-child a{ border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;}
