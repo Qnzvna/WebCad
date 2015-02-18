@@ -108,7 +108,7 @@ function setArc()
   mode.code = 1;
   var arc = new Arc();
   var chord = new Line();
-  var arrow = new Line();
+  var arrow = 0;
 
   mode.Do = function( e )
   {
@@ -132,8 +132,24 @@ function setArc()
       canvas.onmousemove = function( e )
       {
         helpPoint = modePoint( canvas, e );
-        arrow.pointB = helpPoint;
+        var t = 0; // dlugosc strzalki
+        var centerPoint = chord.centerPoint();
+
+        var A = chord.pointA.y - chord.pointB.y;
+        var B = chord.pointB.x - chord.pointA.x;
+        var C = chord.pointA.x * chord.pointB.y - chord.pointA.y * chord.pointB.x;
+        t = ( A * helpPoint.x + B * helpPoint.y + C ) / Math.sqrt( Math.pow( A, 2 ) + Math.pow ( B, 2 ) );
+
+        var a = B / A;
+        var b = - C / B;
+        var pA = - Math.sqrt( B, 2 );
+        var pB = A * B;
+        var pC = C * A;
+
+        arrow = t;
         arc.arrow = arrow;
+        arc.calcCenterPoint( a, b );
+
         canvasRedraw(arc);
       };
       mode.code = 3;
