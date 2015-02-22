@@ -21,65 +21,26 @@ function snap( point, e )
   }
 
   // elements
-  for ( i = 0; i < objects.length; i++ )
+  for ( i = 0; i < points.length; i++ )
   {
     // points
-    if( objects[i] instanceof Point)
+    if ( axisOn )
     {
-      if ( Math.abs( pos.x - objects[i].x ) < 5)
+      if ( Math.abs( pos.x - points[i].x ) < 5)
       {
-        point.x = objects[i].x;
+        point.x = points[i].x;
       }
 
-      if ( Math.abs( pos.y - objects[i].y ) < 5)
+      if ( Math.abs( pos.y - points[i].y ) < 5)
       {
-        point.y = objects[i].y;
+        point.y = points[i].y;
       }
-    } else if( objects[i] instanceof Line) // linie
+    } else
     {
-      if ( Math.abs( pos.x - objects[i].pointA.x ) < 5)
+      if ( Math.abs( pos.x - points[i].x ) < 5 && Math.abs( pos.y - points[i].y ) < 5)
       {
-        point.x = objects[i].pointA.x;
-      }
-
-      if ( Math.abs( pos.y - objects[i].pointB.y ) < 5)
-      {
-        point.y = objects[i].pointB.y;
-      }
-
-      if ( Math.abs( pos.x - objects[i].pointA.x ) < 5)
-      {
-        point.x = objects[i].pointA.x;
-      }
-
-      if ( Math.abs( pos.y - objects[i].pointB.y ) < 5)
-      {
-        point.y = objects[i].pointB.y;
-      }
-    } else if( objects[i] instanceof Polygon) // polygony
-    {
-      for( var j = 0; j < objects[i].lines; i++ )
-      {
-        var line = objects[i].lines[j];
-        if ( Math.abs( pos.x - line.pointA.x ) < 5)
-        {
-          point.x = line.pointA.x;
-        }
-
-        if ( Math.abs( pos.y - line.pointB.y ) < 5)
-        {
-          point.y = line.pointB.y;
-        }
-
-        if ( Math.abs( pos.x - line.pointA.x ) < 5)
-        {
-          point.x = line.pointA.x;
-        }
-
-        if ( Math.abs( pos.y - line.pointB.y ) < 5)
-        {
-          point.y = line.pointB.y;
-        }
+        point.x = points[i].x;
+        point.y = points[i].y;
       }
     }
   }

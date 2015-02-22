@@ -22,6 +22,7 @@ function setPoint()
     snap( point, e);
     point.Draw( context );
     objects.push(point);
+    points.push( point );
     canvasRedraw( null );
   };
 }
@@ -44,6 +45,7 @@ function setLine()
 
       snap( pointA, e);
 
+      points.push( pointA );
       line.pointA = pointA;
       pointA.Draw( context );
 
@@ -66,6 +68,7 @@ function setLine()
     {
       canvas.onmousemove = snaPoint;
 
+      points.push( line.pointB );
       objects.push( line );
       line = new Line();
       mode.code = 1;
@@ -94,7 +97,8 @@ function setPoly()
       snap( pointA, e );
 
       line.pointA = pointA;
-      objects.push( pointA );
+      //objects.push( pointA );
+      points.push( pointA );
 
       canvas.onmousemove = function(e) {
         var pos = getMousePos(canvas, e);
@@ -117,7 +121,7 @@ function setPoly()
     {
       if ( poly.IsClosed() )
       {
-        objects.pop();
+        //objects.pop();
         objects.push(poly);
         mode.code = 1;
         canvas.onmousemove = snaPoint;
@@ -127,6 +131,7 @@ function setPoly()
       } else {
         poly.Add( line );
         var point = line.pointB;
+        points.push( point );
         line = new Line();
         line.pointA = point;
       }
@@ -151,6 +156,8 @@ function setCircle()
       pointS.y = pos.y;
 
       snap( pointS, e );
+
+      points.push( pointS );
 
       circle.pointS = pointS;
       pointS.Draw(context);
