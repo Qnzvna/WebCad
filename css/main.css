@@ -15,3 +15,12 @@ html, body {
 .menu li {
     display: inline;
 }
+
+.box {
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  padding: 50px;
+  border: solid 5px;
+  background: white;
+}

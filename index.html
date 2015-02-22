@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>Web-CAD</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/vader/jquery-ui.css" type="text/css" />
 </head>
 
 <body>
@@ -16,25 +15,64 @@
   </canvas>
 </div>
 
+<div id="box">
+</div>
+
 <ul class="menu">
   <li>
-    <button class="createPoint">Create Points</button>
+    <button class="createPoint">Punkt</button>
   </li>
   <li>
-    <button class="createLine">Draw line</button>
+    <button class="createLine">Linia</button>
   </li>
   <li>
-    <button class="createCircle">Draw circle</button>
+    <button class="createPoly">Wielokąt zamknięty</button>
+  </li>
+  <li>
+    <button class="createCircle">Koło</button>
   </li>
   <li>
     <button class="createArc">Draw arc</button>
+  </li>
+  <li>
+    <button class="fill">Wypełnij</button>
+  </li>
+  <li>
+    <button class="tape">Miarka</button>
+  </li>
+  <li>
+    <button class="back">Cofnij</button>
+  </li>
+  <li>
+    <button class="forward">Ponów</button>
+  </li>
+  <li>
+    <button class="grid">Siatka</button>
+  </li>
+  <li>
+    <button class="redraw">Przerysuj</button>
+  </li>
+  <li>
+    <button class="help-axis">Wyłącz linie pomocnicze</button>
+  </li>
+  <li>
+    <button class="saveFile">Zapisz projekt</button>
+  </li>
+  <li>
+    <button class="readFile">Wczytaj projekt</button>
   </li>
 </ul>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+<script type="text/javascript" src="js/libs/FileSaver.min.js"></script>
+<script type="text/javascript" src="js/libs/Hydrate.js"></script>
+
+<script type="text/javascript" src="js/classes/Grid.js"></script>
 
 <script type="text/javascript" src="js/mode.js"></script>
+<script type="text/javascript" src="js/snapping.js"></script>
+<script type="text/javascript" src="js/help-axis.js"></script>
 <script type="text/javascript" src="js/canvas.js"></script>
 <script type="text/javascript" src="js/mouse.js"></script>
 <script type="text/javascript" src="js/buttons.js"></script>
@@ -44,6 +82,7 @@
 <script type="text/javascript" src="js/classes/Line.js"></script>
 <script type="text/javascript" src="js/classes/Circle.js"></script>
 <script type="text/javascript" src="js/classes/Arc.js"></script>
+<script type="text/javascript" src="js/classes/Polygon.js"></script>
 
 </body>
 </html>
