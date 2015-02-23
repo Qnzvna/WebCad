@@ -1,6 +1,6 @@
 function Grid()
 {
-  this.density = 100;
+  this.density = -1;
 
   this.xes = [];
 

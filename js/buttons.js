@@ -59,8 +59,8 @@ function setLine()
 
         line.pointB = pointB;
 
-        axis( e );
         canvasRedraw(line);
+        axis( e );
       };
 
       mode.code = 2;
@@ -97,7 +97,6 @@ function setPoly()
       snap( pointA, e );
 
       line.pointA = pointA;
-      //objects.push( pointA );
       points.push( pointA );
 
       canvas.onmousemove = function(e) {
@@ -112,8 +111,8 @@ function setPoly()
         line.pointB = pointB;
         poly.Add( line );
 
-        axis( e );
         canvasRedraw( poly );
+        axis( e );
       };
 
       mode.code = 2;
@@ -173,8 +172,8 @@ function setCircle()
 
         circle.pointR = pointR;
 
+        canvasRedraw( circle );
         axis( e );
-        canvasRedraw(circle);
       };
 
       mode.code = 5;
@@ -250,7 +249,7 @@ function fill()
     point.x = pos.x;
     point.y = pos.y;
     point.Draw( context );
-    var poly = new Polygon();
+    var poly = null;
     for ( var i = 0; i < objects.length; i++ )
     {
       if ( objects[i] instanceof Polygon && objects[i].CheckPoint( point ))
@@ -259,7 +258,9 @@ function fill()
       }
     }
 
-    console.log( poly );
+    if ( poly !== null ){
+      console.log( poly.Area() );
+    }
 
   };
 }
@@ -415,8 +416,8 @@ function tape()
 
         line.pointB = pointB;
 
+        canvasRedraw( line );
         axis( e );
-        canvasRedraw(line);
       };
 
       mode.code = 2;

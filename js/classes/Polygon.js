@@ -25,7 +25,7 @@ function Polygon()
   //     return false;
   //   }
   // };
-  // 
+  //
   // this.CheckPoint = function( point )
   // {
   //   var nvert = this.lines.length;
@@ -100,5 +100,22 @@ Polygon.prototype.Draw = function( context )
   for( var i = 0; i < this.lines.length; i++ )
   {
     this.lines[i].Draw( context );
+  }
+};
+
+Polygon.prototype.Area = function()
+{
+  if ( this.IsClosed() )
+  {
+    var area = 0;
+    for ( var i = 0; i < this.lines.length; i++ )
+    {
+      area = area + ( this.lines[i].pointA.x * this.lines[i].pointB.y -
+      this.lines[i].pointB.x * this.lines[i].pointA.y );
+    }
+    return Math.abs( area / 2 );
+  } else
+  {
+    return 0;
   }
 };

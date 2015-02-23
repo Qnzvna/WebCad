@@ -50,13 +50,12 @@ function snap( point, e )
   return point;
 }
 
-function snaPoint(e) {
+function snaPoint( e ) {
   var point = new Point();
   var pos = getMousePos(canvas, e);
   point.x = pos.x;
   point.y = pos.y;
   point = snap( point, e);
-  point.Draw( context );
+  canvasRedraw( point );
   axis( e );
-  canvasRedraw( null );
 }
