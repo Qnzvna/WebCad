@@ -385,54 +385,6 @@ function readFile()
   });
 }
 
-function tape()
-{
-  mode.code = 1;
-  var line = new Line();
-
-  canvas.onmousemove = snaPoint;
-
-  mode.Do = function( e )
-  {
-    if ( mode.code == 1 )
-    {
-      var pointA = new Point();
-      var pos = getMousePos(canvas, e);
-      pointA.x = pos.x;
-      pointA.y = pos.y;
-
-      snap( pointA, e);
-
-      line.pointA = pointA;
-      pointA.Draw( context );
-
-      canvas.onmousemove = function(e) {
-        var pos = getMousePos(canvas, e);
-        var pointB = new Point();
-        pointB.x = pos.x;
-        pointB.y = pos.y;
-
-        snap( pointB, e );
-
-        line.pointB = pointB;
-
-        canvasRedraw( line );
-        axis( e );
-      };
-
-      mode.code = 2;
-    }else if ( mode.code == 2)
-    {
-      canvas.onmousemove = snaPoint;
-
-      //objects.push( line );
-      line = new Line();
-      mode.code = 1;
-      canvasRedraw( null );
-    }
-  };
-}
-
 $( document ).ready( function() {
   $(".createPoint").click(setPoint);
   $(".createLine").click(setLine);

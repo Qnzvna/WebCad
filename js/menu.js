@@ -9,6 +9,9 @@ function restoreMenu()
   $("button.edit").html( "Edit" + ' <span class="caret"></span>');
   $("button.edit").removeClass("btn-primary");
   $("button.edit").addClass("btn-default");
+
+  $("button.tape").removeClass("btn-primary");
+  $("button.tape").addClass("btn-default");
 }
 
 $("a.drawToolsLink").click(function()
@@ -33,4 +36,11 @@ $("a.fileLink").click(function()
   $("button.file").html( $(this).html() + ' <span class="caret"></span>');
   $("button.file").removeClass("btn-default");
   $("button.file").addClass("btn-primary");
+});
+
+$("button.tape").click(function()
+{
+  restoreMenu();
+  $(this).removeClass("btn-default");
+  $(this).addClass("btn-primary");
 });
