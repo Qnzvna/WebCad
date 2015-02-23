@@ -6,7 +6,7 @@ function Grid()
 
   this.yes = [];
 
-  this.color = "#000000";
+  this.color = "#888888";
 
   this.width = 0.5;
 
@@ -62,10 +62,11 @@ Grid.prototype.Draw = function( context ) {
       this.yes.push( y * this.density );
     }
 
-    //context.strokeStyle = this.color;
-    var oldWidth = context.lineWidth;
-    context.lineWidth = this.width;
+    context.strokeStyle = this.color;
+    //var oldWidth = context.lineWidth;
+    //context.lineWidth = this.width;
     context.stroke();
-    context.lineWidth = oldWidth;
+    //context.lineWidth = oldWidth;
+    context.strokeStyle = "#000000";
   }
 };

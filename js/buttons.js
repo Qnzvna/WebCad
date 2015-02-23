@@ -332,12 +332,12 @@ function helpAxis()
 {
   if ( axisOn === true )
   {
-    $(".help-axis").html("Włącz linie pomocnicze");
+    //$(".help-axis").html("Włącz linie pomocnicze");
     axisOn = false;
   } else
   {
     axisOn = true;
-    $(".help-axis").html("Wyłącz linie pomocnicze");
+    //$(".help-axis").html("Wyłącz linie pomocnicze");
   }
 }
 

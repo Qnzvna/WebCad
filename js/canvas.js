@@ -19,7 +19,6 @@ $("#display").click( function( e ) {
 $('#display').contextmenu( function() {
     canvasRedraw( null );
     canvas.onmousemove = snaPoint;
-    mode.Do = function(){};
     return false;
 });
 

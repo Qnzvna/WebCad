@@ -19,16 +19,41 @@
 <div id="box">
 </div>
 
-<div class="btn-group menu">
-  <button type="button" class="btn btn-default dropdown-toggle drawTools" data-toggle="dropdown" aria-expanded="false">
-    Draw Tools <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a class="drawToolsLink createPoint" href="#">Point</a></li>
-    <li><a class="drawToolsLink createLine" href="#">Line</a></li>
-    <li><a class="drawToolsLink createPoly" href="#">Polygon</a></li>
-    <li><a class="drawToolsLink createCircle" href="#">Circle</a></li>
-  </ul>
+<div class="menu">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle file" data-toggle="dropdown" aria-expanded="false">
+      File <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a class="saveFile" href="#">Save file</a></li>
+      <li><a class="readFile" href="#">Load file</a></li>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle edit" data-toggle="dropdown" aria-expanded="false">
+      Edit <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a class="back" href="#">Undo</a></li>
+      <li><a class="forward" href="#">Redo</a></li>
+      <li><a class="help-axis" href="#">Help Axis</a></li>
+      <li><a class="redraw" href="#">Redraw</a></li>
+      <li><a class="grid" href="#">Grid</a></li>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle drawTools" data-toggle="dropdown" aria-expanded="false">
+      Draw Tools <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a class="drawToolsLink createPoint" href="#">Point</a></li>
+      <li><a class="drawToolsLink createLine" href="#">Line</a></li>
+      <li><a class="drawToolsLink createPoly" href="#">Polygon</a></li>
+      <li><a class="drawToolsLink createCircle" href="#">Circle</a></li>
+    </ul>
+  </div>
 </div>
 
 <ul class="menu">
@@ -40,27 +65,6 @@
   </li>
   <li>
     <button class="tape">Miarka</button>
-  </li>
-  <li>
-    <button class="back">Cofnij</button>
-  </li>
-  <li>
-    <button class="forward">Ponów</button>
-  </li>
-  <li>
-    <button class="grid">Siatka</button>
-  </li>
-  <li>
-    <button class="redraw">Przerysuj</button>
-  </li>
-  <li>
-    <button class="help-axis">Wyłącz linie pomocnicze</button>
-  </li>
-  <li>
-    <button class="saveFile">Zapisz projekt</button>
-  </li>
-  <li>
-    <button class="readFile">Wczytaj projekt</button>
   </li>
   <li>
     <button class="zoomPlus">Przybliż</button>
