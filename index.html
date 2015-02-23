@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Web-CAD</title>
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" href="css/libs/bootstrap.min.css">
 </head>
 
 <body>
@@ -18,19 +19,19 @@
 <div id="box">
 </div>
 
+<div class="btn-group menu">
+  <button type="button" class="btn btn-default dropdown-toggle drawTools" data-toggle="dropdown" aria-expanded="false">
+    Draw Tools <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a class="drawToolsLink createPoint" href="#">Point</a></li>
+    <li><a class="drawToolsLink createLine" href="#">Line</a></li>
+    <li><a class="drawToolsLink createPoly" href="#">Polygon</a></li>
+    <li><a class="drawToolsLink createCircle" href="#">Circle</a></li>
+  </ul>
+</div>
+
 <ul class="menu">
-  <li>
-    <button class="createPoint">Punkt</button>
-  </li>
-  <li>
-    <button class="createLine">Linia</button>
-  </li>
-  <li>
-    <button class="createPoly">Wielokąt zamknięty</button>
-  </li>
-  <li>
-    <button class="createCircle">Koło</button>
-  </li>
   <li>
     <button class="createArc">Draw arc</button>
   </li>
@@ -71,10 +72,17 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+<script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/libs/FileSaver.min.js"></script>
 <script type="text/javascript" src="js/libs/Hydrate.js"></script>
 
 <script type="text/javascript" src="js/classes/Grid.js"></script>
+<script type="text/javascript" src="js/classes/Point.js"></script>
+<script type="text/javascript" src="js/classes/DimensionText.js"></script>
+<script type="text/javascript" src="js/classes/Line.js"></script>
+<script type="text/javascript" src="js/classes/Circle.js"></script>
+<script type="text/javascript" src="js/classes/Arc.js"></script>
+<script type="text/javascript" src="js/classes/Polygon.js"></script>
 
 <script type="text/javascript" src="js/mode.js"></script>
 <script type="text/javascript" src="js/snapping.js"></script>
@@ -83,13 +91,7 @@
 <script type="text/javascript" src="js/mouse.js"></script>
 <script type="text/javascript" src="js/zoom.js"></script>
 <script type="text/javascript" src="js/buttons.js"></script>
-
-<script type="text/javascript" src="js/classes/Point.js"></script>
-<script type="text/javascript" src="js/classes/DimensionText.js"></script>
-<script type="text/javascript" src="js/classes/Line.js"></script>
-<script type="text/javascript" src="js/classes/Circle.js"></script>
-<script type="text/javascript" src="js/classes/Arc.js"></script>
-<script type="text/javascript" src="js/classes/Polygon.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
 
 </body>
 </html>
