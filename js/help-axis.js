@@ -4,7 +4,7 @@ function axis( e )
   {
     var pos = getMousePos(canvas, e);
 
-    snap( pos, e );
+    pos = snap( pos, e );
 
     context.moveTo(pos.x, 0);
     context.lineTo(pos.x, canvas.height);

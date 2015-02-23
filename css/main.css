@@ -3,6 +3,10 @@ html, body {
     height: 100%;
 }
 
+#display {
+  cursor: none;
+}
+
 .menu {
   position: fixed;
   top: 20px;

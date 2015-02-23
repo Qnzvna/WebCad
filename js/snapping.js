@@ -3,25 +3,27 @@ function snap( point, e )
 
   // grid
   var pos = getMousePos(canvas, e);
-  //console.log(objects[0].xes);
-  for ( var i = 0; i < objects[0].xes.length; i++ )
+  if (objects[0].density != -1)
   {
-    if ( Math.abs( pos.x - objects[0].xes[i] ) < 5)
+    for ( var i = 0; i < objects[0].xes.length; i++ )
     {
-      point.x = objects[0].xes[i];
+      if ( Math.abs( pos.x - objects[0].xes[i] ) < 5)
+      {
+        point.x = objects[0].xes[i];
+      }
     }
-  }
 
-  for ( i = 0; i < objects[0].yes.length; i++ )
-  {
-    if ( Math.abs( pos.y - objects[0].yes[i] ) < 5)
+    for ( var i = 0; i < objects[0].yes.length; i++ )
     {
-      point.y = objects[0].yes[i];
+      if ( Math.abs( pos.y - objects[0].yes[i] ) < 5)
+      {
+        point.y = objects[0].yes[i];
+      }
     }
   }
 
   // elements
-  for ( i = 0; i < points.length; i++ )
+  for ( var i = 0; i < points.length; i++ )
   {
     // points
     if ( axisOn )
@@ -44,6 +46,8 @@ function snap( point, e )
       }
     }
   }
+
+  return point;
 }
 
 function snaPoint(e) {
@@ -51,7 +55,7 @@ function snaPoint(e) {
   var pos = getMousePos(canvas, e);
   point.x = pos.x;
   point.y = pos.y;
-  snap( point, e);
+  point = snap( point, e);
   point.Draw( context );
   axis( e );
   canvasRedraw( null );

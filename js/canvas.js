@@ -6,9 +6,11 @@ var deleted = [];
 var grid = new Grid();
 var axisOn = true;
 var hydrate = new Hydrate();
+var matrix=[1,0,0,1,0,0];
 canvas.height = document.body.offsetHeight - 5;
 canvas.width = document.body.clientWidth;
 canvas.onmousemove = snaPoint;
+document.onkeydown = function(){};
 
 $("#display").click( function( e ) {
   mode.Do( e );

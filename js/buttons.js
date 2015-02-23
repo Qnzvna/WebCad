@@ -286,7 +286,11 @@ function forward()
 
 function grid()
 {
-  var div = '<div class="grid box"><div>Podaj szerokość siatki:</div><input name="grid-size" type="text"/><button>OK</button></div>';
+  var div = "<div class=\"grid box\">\
+  <div>Podaj szerokość siatki:</div>\
+  <div><input name=\"grid-size\" type=\"text\"/><button class=\"ok\">OK</button></div>\
+  <div><button class=\"off\">Wyłącz</button></div>\
+  </div>";
   if ( $("#box .box").length === 0 )
   {
     $("#box").append(div);
@@ -301,9 +305,17 @@ function grid()
     }
   }
 
-  $("#box .grid button").click(function(){
+  $("#box .grid button.ok").click(function(){
     var grid = new Grid();
     grid.density = $("#box .grid input").val();
+    objects[0] = grid;
+    canvasRedraw( null );
+    $("#box").empty();
+  });
+
+  $("#box .grid button.off").click(function(){
+    var grid = new Grid();
+    grid.density = -1;
     objects[0] = grid;
     canvasRedraw( null );
     $("#box").empty();
@@ -379,7 +391,7 @@ function tape()
 
   canvas.onmousemove = snaPoint;
 
-  mode.Do = function(e)
+  mode.Do = function( e )
   {
     if ( mode.code == 1 )
     {
@@ -435,4 +447,6 @@ $( document ).ready( function() {
   $(".help-axis").click(helpAxis);
   $(".saveFile").click(saveFile);
   $(".readFile").click(readFile);
+  $(".zoomPlus").click(zoomPlus);
+  $(".zoomMinus").click(zoomMinus);
 });
