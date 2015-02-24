@@ -30,7 +30,6 @@ function Arc()
     var arrowPoint = new Point();
 
     var d = this.Radius() - this.arrow;
-    console.log(this.arrow);
 
     var A = this.chord.pointA.y - this.chord.pointB.y;
     var B = this.chord.pointB.x - this.chord.pointA.x;
@@ -51,7 +50,10 @@ function Arc()
     if (this.chord != -1)
       this.chord.Draw(context);
 
-    if (this.arrow != -1 && this.Radius() > this.arrow)
+
+    //console.log(this.arrow);
+    //console.log(this.chord.Length()/2);
+    if (this.arrow != -1 && this.chord.Length() / 2 > this.arrow)
     {
       context.beginPath();
       //console.log(this.centerPoint);

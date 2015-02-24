@@ -13,4 +13,8 @@ Point.prototype.Draw = function( context )
   context.beginPath();
   context.arc(this.x, this.y, this.radius / scale, 0, 2 * Math.PI, false);
   context.stroke();
+  var dim = new DimensionText();
+  dim.point = this;
+  dim.text = "(" + this.x + "," + this.y + ")";
+  dim.Draw(context);
 };
