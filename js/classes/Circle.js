@@ -35,3 +35,22 @@ Circle.prototype.Draw = function( context )
     dim.Draw(context);
   }
 };
+
+Circle.prototype.CheckPoint = function( point )
+{
+  var line = new Line();
+  line.pointA = this.pointS;
+  line.pointB = point;
+  if ( line.Length() < this.Radius() )
+  {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+Circle.prototype.Area = function()
+{
+  var area = 2 * Math.PI * Math.pow( this.Radius(), 2 );
+  return area;
+};

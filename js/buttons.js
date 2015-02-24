@@ -240,31 +240,6 @@ function setArc()
   };
 }
 
-function fill()
-{
-  mode.Do = function ( e )
-  {
-    var point = new Point();
-    var pos = getMousePos(canvas, e);
-    point.x = pos.x;
-    point.y = pos.y;
-    point.Draw( context );
-    var poly = null;
-    for ( var i = 0; i < objects.length; i++ )
-    {
-      if ( objects[i] instanceof Polygon && objects[i].CheckPoint( point ))
-      {
-        poly = objects[i];
-      }
-    }
-
-    if ( poly !== null ){
-      console.log( poly.Area() );
-    }
-
-  };
-}
-
 function back()
 {
   if (objects.length > 1)
@@ -287,11 +262,6 @@ function forward()
 
 function grid()
 {
-  //var div = "<div class=\"grid box\">\
-  //<div>Podaj szerokość siatki:</div>\
-  //<div><input name=\"grid-size\" type=\"text\"/><button class=\"ok\">OK</button></div>\
-  //<div><button class=\"off\">Wyłącz</button></div>\
-  //</div>";
 
   var div = "<div class=\"grid box panel panel-primary\">\
   <div class=\"panel-heading\">Grid density</div>\
@@ -457,7 +427,7 @@ $( document ).ready( function() {
   $(".createArc").click(setArc);
   $(".createCircle").click(setCircle);
   $(".tape").click(tape);
-  $(".fill").click(fill);
+  $(".fill").click(calcArea);
   $(".back").click(back);
   $(".forward").click(forward);
   $(".grid").click(grid);

@@ -62,6 +62,7 @@
       <li><a class="drawToolsLink createLine" href="#">Line</a></li>
       <li><a class="drawToolsLink createPoly" href="#">Polygon</a></li>
       <li><a class="drawToolsLink createCircle" href="#">Circle</a></li>
+      <li><a class="drawToolsLink createArc disabled" href="#">Arc</a></li>
     </ul>
   </div>
 
@@ -69,18 +70,12 @@
     <button type="button" class="btn btn-default tape">
       Tape
     </button>
+    <button type="button" class="btn btn-default fill">
+      Calculate Area
+    </button>
   </div>
 
 </div>
-
-<ul class="menu">
-  <li>
-    <button class="createArc">Draw arc</button>
-  </li>
-  <li>
-    <button class="fill">Wypełnij</button>
-  </li>
-</ul>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
@@ -97,6 +92,7 @@
 <script type="text/javascript" src="js/classes/Polygon.js"></script>
 
 <script type="text/javascript" src="js/tools/tape.js"></script>
+<script type="text/javascript" src="js/tools/fill.js"></script>
 
 <script type="text/javascript" src="js/deserialize.js"></script>
 <script type="text/javascript" src="js/mode.js"></script>
