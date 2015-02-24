@@ -287,11 +287,27 @@ function forward()
 
 function grid()
 {
-  var div = "<div class=\"grid box\">\
-  <div>Podaj szerokość siatki:</div>\
-  <div><input name=\"grid-size\" type=\"text\"/><button class=\"ok\">OK</button></div>\
-  <div><button class=\"off\">Wyłącz</button></div>\
+  //var div = "<div class=\"grid box\">\
+  //<div>Podaj szerokość siatki:</div>\
+  //<div><input name=\"grid-size\" type=\"text\"/><button class=\"ok\">OK</button></div>\
+  //<div><button class=\"off\">Wyłącz</button></div>\
+  //</div>";
+
+  var div = "<div class=\"grid box panel panel-primary\">\
+  <div class=\"panel-heading\">Grid density</div>\
+  <div class=\"panel-body\">\
+    <div class=\"input-group\">\
+      <input type=\"text\" class=\"form-control\">\
+      <span class=\"input-group-btn\">\
+        <button class=\"btn btn-default ok\" type=\"button\">OK</button>\
+        </span>\
+    </div>\
+    <div style=\"margin-top: 20px;\" class=\"input-group\">\
+      <button type=\"button\" class=\"btn btn-default off\">Turn off</button>\
+    </div>\
+  </div>\
   </div>";
+
   if ( $("#box .box").length === 0 )
   {
     $("#box").append(div);
@@ -343,15 +359,54 @@ function helpAxis()
 
 function saveFile()
 {
-  var json_str = hydrate.stringify( objects );
-  console.log( json_str );
-  var blob = new Blob([json_str], {type: "text/plain;charset=utf-8"});
-  saveAs(blob, "projekt.json");
+  var div = "<div class=\"file box panel panel-primary\">\
+  <div class=\"panel-heading\">Save project</div>\
+  <div class=\"panel-body\">\
+    <div class=\"input-group\">\
+      <input type=\"text\" class=\"form-control\" placeholder=\"filename\">\
+      <span class=\"input-group-btn\">\
+        <button class=\"btn btn-default ok\" type=\"button\">OK</button>\
+        </span>\
+    </div>\
+  </div>\
+  </div>";
+
+  if ( $("#box .box").length === 0 )
+  {
+    $("#box").append(div);
+  } else {
+    if ( $("#box .file").length === 0)
+    {
+      $("#box").empty();
+      $("#box").append(div);
+    } else
+    {
+      $("#box").empty();
+    }
+  }
+
+  $("#box .file button.ok").click(function()
+  {
+    var json_str = hydrate.stringify( [objects, points] );
+    var blob = new Blob([json_str], {type: "text/plain;charset=utf-8"});
+    var filename = $("#box .file input").val() + '.webcad';
+    saveAs(blob, filename);
+    $("#box").empty();
+  });
 }
 
 function readFile()
 {
-  var div = '<div class="file box"><div>Podaj plik do wczytania:</div><input type="file" /></div>';
+  var div = "<div class=\"file box panel panel-primary\">\
+  <div class=\"panel-heading\">Load project</div>\
+  <div class=\"panel-body\">\
+    <div class=\"input-group\">\
+      <input type=\"file\" class=\"form-control\">\
+    </div>\
+  </div>\
+  </div>";
+
+  //var div = '<div class="file box"><div>Podaj plik do wczytania:</div><input type="file" /></div>';
   if ( $("#box .box").length === 0 )
   {
     $("#box").append(div);
@@ -374,7 +429,17 @@ function readFile()
       r.onload = function( e )
       {
         var contents = e.target.result;
-        objects = hydrate.parse( contents );
+        var array = hydrate.parse( contents );
+        objects = array[0];
+        points = array[1];
+        for( var i = 0; i < objects.length; i++ )
+        {
+          objects[i] = deserialize( objects[i] );
+        }
+        for( var i = 0; i < points.length; i++ )
+        {
+          points[i] = deserialize( points[i] );
+        }
         canvasRedraw( null );
       };
       r.readAsText(f);

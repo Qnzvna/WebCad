@@ -31,7 +31,5 @@ div.menu
   position: fixed;
   top: 40%;
   left: 40%;
-  padding: 50px;
-  border: solid 5px;
-  background: white;
+  width: 300px;
 }
