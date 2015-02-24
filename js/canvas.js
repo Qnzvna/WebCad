@@ -6,7 +6,7 @@ var deleted = [];
 var grid = new Grid();
 var axisOn = true;
 var hydrate = new Hydrate();
-var matrix=[1,0,0,1,0,0];
+var scale = 1;
 canvas.height = document.body.offsetHeight - 5;
 canvas.width = document.body.clientWidth;
 canvas.onmousemove = snaPoint;
@@ -27,7 +27,7 @@ grid.Draw( context );
 
 function canvasRedraw( object )
 {
-  context.clearRect( 0, 0, context.canvas.width, context.canvas.height );
+  context.clearRect( 0, 0, context.canvas.width / scale, context.canvas.height / scale);
   for ( var i = 0; i < objects.length; i++ )
   {
     objects[i].Draw(context);
